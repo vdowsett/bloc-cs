@@ -1,0 +1,86 @@
+1.
+
+let rideLine = ["Vivian", "Ava", "Josh", "Patrick", "Mike"];
+let isFound = false;
+
+var findPersonIndex = function (rideLine, personName) {
+  
+  let personIndex = '';
+  
+  for (i = 0; i <= rideLine.length; i++) {
+    if (rideLine[i] === personName) {
+      personIndex = rideLine.indexOf(rideLine[i])
+    }
+  }
+  
+  console.log("findPersonIndex(): " + personIndex);
+  return personIndex;
+  
+};
+
+function newPerson(rideLine, personName) {
+
+    rideLine.push(personName);
+    console.log("newPerson() array: " + rideLine);
+    console.log("newPerson() index: " + findPersonIndex(rideLine, personName));
+}
+
+function findPerson(rideLine, personName) {
+  
+  for (i = 0; i <= rideLine.length; i++) {
+    
+    if (rideLine[i] === personName) {
+      personIndex = findPersonIndex(rideLine, personName);
+      isFound = true;
+    } else {
+      isFound = false;    
+    }
+  }
+  if (isFound === true) {  
+    console.log( personName + " is in position " + personIndex + ". findPerson() is true." );   
+    return personName + " is in position " + personIndex + ".";   
+  } else { 
+  console.log(personName + " not in line.  " + "findPerson() is false.");
+  return personName + " not in line.";
+
+
+  }
+  
+}
+
+function cutPerson(rideLine, personName, personCutting) {
+ 
+  for (i = 0; i <= rideLine.length; i++) {
+    if (rideLine[i] === personName) {
+      personIndex = findPersonIndex(rideLine, personName);
+      console.log("cutPerson() index: " + personIndex);
+    }
+  }
+  
+  rideLine.splice( personIndex, 0, personCutting );
+  console.log(rideLine);
+  
+}
+
+function deletePerson(rideLine, personName) {
+  
+  let newArray = rideLine.filter( name => name != personName );
+  console.log(newArray);
+  return newArray;
+  
+}
+
+findPersonIndex(rideLine, "Mike");
+newPerson(rideLine, "Mary");
+findPerson(rideLine, "Josh");
+findPerson(rideLine, "Emily");
+cutPerson(rideLine, "Josh", "Melissa");
+deletePerson(rideLine, "Patrick");
+
+2. Real world example of data model:
+
+The DMV uses a queue system to allow people to check in and receive a ticket holding their place in line.
+
+
+3. For the queue at the DMV it would be very similar to the amusement park ride to add and remove people, however with this system it's first in, and first out. there isn't the option to cut the line!
+
