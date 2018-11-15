@@ -1,0 +1,118 @@
+1. Clean code is important to ensure that groups of developers are able to work together on a project, as well as ensuring that down the road, when you come to review your code, edit your code or fix bugs you are able to quickly and easily tell what a block of code's purpose is and where you need to make your changes.
+
+2. Can't help but think of the baby monitors that was hackable and have strange people watching your baby!! 
+
+3. No, rather than commenting to explain your code, the function, variables and parameters should be named properly so that another developer can read it and know what the code will do.
+
+FUNCTION convertTemperature(degrees, units)
+ IF units = "F" THEN
+ 	SET temperature to (degrees −32) * (5/9)
+ 	PRINT temperature
+ ELSE IF units = "C" THEN
+ 	SET temperature to degrees * 1.8000 + 32.00
+ 	PRINT temperature
+ END IF
+END FUNCTION
+
+4. Yes, this code is clean. The function and variables have readable names, and you can see what the function has to do without further explanation.
+
+5. 
+
+5(a). DRY the total calculation:
+
+FUNCTION calculateTotal
+	SET total to subTotal * discountRate + (subTotal * tax)
+	RETURN total
+END FUNCTION
+
+FUNCTION processPayment
+	PRINT 'Your total due is:' = total
+	IF paymentType = 'CASH' THEN
+       		CALL getPayment RETURNING amount
+       		PRINT "Change due: " + amount - total
+   	ELSE IF paymentType = 'CREDIT CARD' THEN
+       		CALL getPayment RETURNING amount
+       		PRINT "Your credit card has been charged: " + total
+   	END IF
+END FUNCTION
+
+5(b). Simplify the IF statement
+
+FUNCTION checkoutBook(book, guest)
+	IF guest.accountActive AND IF NOT(guest.hasOverdueBooks) AND guest.outstandingFees = 0 THEN
+		APPEND book to guest.books
+		SET book.status to "Checked Out"
+		PRINT "Your books have been issued."
+	ELSE
+		PRINT "Unable to check out book."
+	END IF
+END FUNCTION
+
+5(c). Split out the customer's account and money matters from marketing offers:
+
+CLASS BankAccount
+
+ FUNCTION displayBalance
+    PRINT balance
+ END FUNCTION
+
+ FUNCTION deposit(amount)
+    SET balance to balance + amount
+ END FUNCTION
+
+ FUNCTION withdraw(amount)
+     IF balance > amount THEN
+       SET balance to balance - amount
+     END
+ END FUNCTION
+
+ ....
+ ....
+ ....
+
+END
+
+CLASS Marketing
+
+ FUNCTION creditCardOffer
+     IF NOT(customer.hasCreditCard) THEN
+         CALL offerCreditCard
+     END
+ END FUNCTION
+
+ FUNCTION checkStatus
+     IF NOT(customer.hasCheckingAccount) THEN
+         CALL offerCheckingAccount
+     END
+ END FUNCTION
+
+ ....
+ ....
+ ....
+
+END
+
+6. Square
+
+function square (inputArray) {
+      var arraySum = inputArray.reduce((total, amount) => total + amount);
+  		var sumSquare = Math.sqrt(arraySum);
+	return (sumSquare % 1 === 0 ? sumSquare : arraySum);
+}
+
+7. Duplicate
+
+function findDuplicate(inputArray) {
+    var counts = [];
+    for(var i = 0; i <= inputArray.length; i++) {
+        if(counts[inputArray[i]] === undefined) {
+            counts[inputArray[i]] = 1;
+        } else {
+          console.log('true');
+            return true;
+          
+        }
+    }
+  console.log('false');
+    return false;
+}
