@@ -5,14 +5,7 @@ let isFound = false;
 
 var findPersonIndex = function (rideLine, personName) {
   
-  let personIndex = '';
-  
-  for (i = 0; i <= rideLine.length; i++) {
-    if (rideLine[i] === personName) {
-      personIndex = rideLine.indexOf(rideLine[i])
-    }
-  }
-  
+  let personIndex = rideLine.indexOf(personName);
   console.log("findPersonIndex(): " + personIndex);
   return personIndex;
   
@@ -27,34 +20,29 @@ function newPerson(rideLine, personName) {
 
 function findPerson(rideLine, personName) {
   
-  for (i = 0; i <= rideLine.length; i++) {
-    
-    if (rideLine[i] === personName) {
+    let personFound = rideLine.find( rider => rider === personName );
+    console.log( "Person Found: " + personFound );   
+  
+    if (personFound === personName) {
       personIndex = findPersonIndex(rideLine, personName);
       isFound = true;
     } else {
       isFound = false;    
     }
-  }
-  if (isFound === true) {  
-    console.log( personName + " is in position " + personIndex + ". findPerson() is true." );   
-    return personName + " is in position " + personIndex + ".";   
-  } else { 
-  console.log(personName + " not in line.  " + "findPerson() is false.");
-  return personName + " not in line.";
-
-
-  }
+  
+    if (isFound === true) {  
+      return personIndex;   
+    } else { 
+    console.log(personName + " not in line.");
+    return personName + "Not in line";
+    }
   
 }
 
 function cutPerson(rideLine, personName, personCutting) {
- 
-  for (i = 0; i <= rideLine.length; i++) {
-    if (rideLine[i] === personName) {
+  
+  if (findPerson(rideLine, personName) === personName) {
       personIndex = findPersonIndex(rideLine, personName);
-      console.log("cutPerson() index: " + personIndex);
-    }
   }
   
   rideLine.splice( personIndex, 0, personCutting );
@@ -74,7 +62,7 @@ findPersonIndex(rideLine, "Mike");
 newPerson(rideLine, "Mary");
 findPerson(rideLine, "Josh");
 findPerson(rideLine, "Emily");
-cutPerson(rideLine, "Josh", "Melissa");
+cutPerson(rideLine, "Vivian", "Melissa");
 deletePerson(rideLine, "Patrick");
 
 2. Real world example of data model:
