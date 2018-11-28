@@ -1,0 +1,150 @@
+GENERAL QUESTIONS
+
+1. What are some pros and cons of using linked lists instead of arrays?
+
+Pros: Linked Lists are better for memory. Memory space is conserved by not needing placeholders and each node is independent in memory. Memory allocated does not need to be contiguous so linked lists to become extremely large.
+
+Cons: It does not allow direct access to individual elements. All preceding nodes must be accessed in order before one can access the desired node.
+
+---------------------------------
+---------------------------------
+
+2. Come up with a real world example of a linked list.
+
+Previous and next page in web browser, or previous and next buttons on a music player
+
+---------------------------------
+---------------------------------
+
+PROGRAMMING QUESTIONS
+
+A. The linked list push function should take a value, create a node, and add it to the end of a list. Below is pseudocode for a push function for a singly linked list. However, there is something wrong with it. Submit both an explanation of the bug and a functional implementation of the method.
+
+The code sample does not iterate to the end of the list in order to add the node to the last position.
+
+In the order to add an element at the end of the list:
+
+1. If the list is empty then add an element and it will be head
+2. If the list is not empty then iterate to the end of the list and add an element at the end of the list
+3. 'current' is used to iterate through the list after every iteration we update it to be the next of the current node. 
+4. If next is null (the last element of a list contains null in the next) then we add the element to the list.
+
+(PLAN)
+
+CREATE node class
+	SET node.value TO element
+	SET node.next TO null
+
+CREATE linked list class
+  FUNCTION push(element)
+	IF the head node does not exist
+		THEN SET head to node
+	ELSE
+		SET current to head node
+		WHILE current.next is not 0
+			SET current to current.next;
+		END WHILE
+		SET current.next to node			
+	END IF
+END FUNCTION
+
+(CODE)
+
+class Node { 
+    constructor(element) 
+    { 
+        this.element = element; 
+        this.next = null
+    } 
+}
+
+class LinkedList { 
+  constructor() 
+  { 
+      this.head = null; 
+  } 
+
+  push (element) { 
+    var node = new Node(element);
+    
+    var current; 
+
+    if (this.head == null) 
+        this.head = node; 
+    else { 
+        current = this.head; 
+        while (current.next) { 
+            current = current.next; 
+        } 
+        current.next = node; 
+    } 
+  }
+}
+
+---------------------------------
+---------------------------------
+
+B. Given an unsorted singly linked list, remove all duplicates from the linked list.
+Example
+Input: a -> c -> d -> d -> a
+Output: a -> c -> d
+
+(PLAN)
+
+(iterate over the list, at the end of iteration, .next will be null, and that will end the while loop)
+
+  FUNCTION removeElement(element)
+	SET current to head node
+	SET previous to null
+
+	WHILE current is not null 
+		IF current element is the same as the next element
+		REMOVE duplicated element	
+		
+		SET previous to current node
+		SET current to current.next;
+		
+		ITERATE AGAIN (while will do this)
+
+(CODE)
+
+removeElement(element) 
+{ 
+    const current = this.head; 
+    const prev = null; 
+
+    while (current != null) { 
+        if (current.element === current.next.element) {
+            this.length--;  
+        } 
+        prev = current; 
+        current = current.next; 
+    } 
+    return this; 
+}
+
+---------------------------------
+---------------------------------
+
+C. Given an unsorted singly linked list, reverse it.
+Example
+Input: a -> b -> c -> d
+Output: d -> c -> b -> a
+
+(PLAN)
+(CODE)
+
+reverseLinkedList() {
+  var previousNode = null;
+  var thisNode = this.head;
+  var nextNode;
+
+  while (thisNode) {
+      nextNode = thisNode.next;
+      thisNode.next = previousNode;
+      previousNode = thisNode;
+      thisNode = nextNode;
+  }
+
+  this.head = previousNode;
+}
