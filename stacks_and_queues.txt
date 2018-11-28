@@ -1,0 +1,168 @@
+GENERAL QUESTIONS
+
+1. What is the main difference between a stack and a queue?
+
+Queues are First In First Out (FIFO) abstract data types in which elements are kept in order. Elements are added to the last or back position of the data object and removed from the beginning or front of the queue object. 
+
+Stacks are Last In First Out (LIFO) abstract data types that serves as a collection of elements, with 2 principal operations:
+	a. push adds elements to the top of the stack
+	b. pop removes the most recently added element that was not yet removed.
+The push and pop operations occur only at one end of the structure, though of as the top of the stack.
+
+---------------------------------
+---------------------------------
+
+2. What are the similarities between stacks and queues?
+
+Both data structures are linear, and handle adding and removing elements in a certain order. Both add elements at the end of the object, however the difference come in where they remove elements.
+
+---------------------------------
+---------------------------------
+
+3. Imagine you are an engineer tasked with implementing the UNDO and REDO options in a word processor such as Microsoft Word. Which data structure would you use for each option and why?
+
+Using a STACK for UNDO. The program would push each operation completed by the user at the top of the stack, and when they hit undo, it will pop the last action they completed from the top of the stack.
+
+Using a STACK would work for REDO. The program will push each new undo operation that the user completed at the top of the stack. When a user realize they hit that undo button one too many times, and then hit redo, you would pop the latest undo from the top of the stack and revert to a previous version of the word doc.
+
+---------------------------------
+---------------------------------
+
+PROGRAMMING QUESTIONS
+
+A. Given a string, reverse it using a stack. For example, the string "Bloc!" should be converted to "!colB".
+
+(PLAN)
+
+INIT Stack
+
+FOR each Character in word
+	PUSH Character to last position (back) of Stack letters
+
+INIT reversed string
+INIT stack length
+
+FOR each Character in stack
+	SET reversed string to last character and DELETE Character from last position in Stack letters
+
+RETURN reverseWord
+
+
+1. Convert the string to array
+
+2. Create a STACK data structure
+
+3. Push letters into stack one by one, with each new letter added the the 'top' position
+
+4. Reverse the array
+
+5. Convert back to string
+
+(CODE)
+
+const reverseString = (word) => {
+  const stack = [];
+  for(let i = 0; i < word.length; i++ ) {
+    stack.push(word[i]);  
+  }
+  let reversed = "";
+  const length = stack.length;
+  for(let i = 0; i < length; i++){
+    reversed += stack.pop();
+  }
+  return reversed;
+}
+
+---------------------------------
+---------------------------------
+
+B. Implement the pop method of a stack using one queue. 
+
+Make a FIFO data structure mirror the functionality of a LIFO data structure. Since the internal list is not the same as defined in the checkpoint, it may help to rewrite the pseudocode first.
+
+To delete an item, take all of the elements in the queue one at a time and put them at the end of the queue, except for the last one which should be removed and returned.
+
+(PLAN)
+
+CLASS Stack
+ FUNCTION pop(queue)
+	INIT empty Arrays newQueue and itemToDelete
+	FOR each Character in queue
+	 	IF NOT last Character in queue
+		 PUSH to end of newQueue
+		ELSE
+			PUSH last Character in queue to itemToDelete
+		END IF
+	END FOR
+ END FUNCTION
+END CLASS
+
+
+(CODE)
+
+class Stack {
+  constructor(){
+    this.pop = function(queue){
+      var newQueue = [];
+      var itemToDelete = [];
+
+      for(var i = 0; i < queue.length; i++){
+        if(i == queue.length - 1){
+          itemToDelete.push(queue[i]);
+        } else {
+          newQueue.push(queue[i]);
+        }
+      }
+
+      return newQueue;
+
+    }
+  }
+}
+
+---------------------------------
+---------------------------------
+
+C. Implement the enqueue and dequeue methods defined in the checkpoint inside your own Queue class.
+
+(PLAN)
+
+create a queue class with at least x2 functions: enqueue, dequeue. can use array data structure. 
+
+FUNCTION enqueue(element)
+  APPEND element to the beginning of the list
+  RETURN items
+END FUNCTION
+
+FUNCTION dequeue
+  REMOVE FIRST element of list from list
+  RETURN items
+END FUNCTION
+
+(CODE)
+
+class Queue{
+ constructor(requests){
+   //initialize the requests in queue
+   this.requests = []
+   // enqueuing the requests passed to the constructor
+   this.enqueue(requests)
+ }
+
+  enqueue(requests){
+    //push requests into the queue
+    requests.forEach( request => this.requests.push(request) )
+    return this.requests;
+  }
+
+  dequeue(count=1){
+    //pull out the first item from the queue
+    this.requests.splice(0,count);
+    return this.requests;
+  }
+
+}
+
+
+
+
