@@ -26,7 +26,7 @@ In the order to add an element at the end of the list:
 
 1. If the list is empty then add an element and it will be head
 2. If the list is not empty then iterate to the end of the list and add an element at the end of the list
-3. 'current' is used to iterate through the list after every iteration we update it to be the next of the current node. 
+3. 'current' is used to iterate through the list after every iteration we update it to be the next of the current node.
 4. If next is null (the last element of a list contains null in the next) then we add the element to the list.
 
 (PLAN)
@@ -44,40 +44,40 @@ CREATE linked list class
 		WHILE current.next is not 0
 			SET current to current.next;
 		END WHILE
-		SET current.next to node			
+		SET current.next to node
 	END IF
 END FUNCTION
 
 (CODE)
 
-class Node { 
-    constructor(element) 
-    { 
-        this.element = element; 
+class Node {
+    constructor(element)
+    {
+        this.element = element;
         this.next = null
-    } 
+    }
 }
 
-class LinkedList { 
-  constructor() 
-  { 
-      this.head = null; 
-  } 
+class LinkedList {
+  constructor()
+  {
+      this.head = null;
+  }
 
-  push (element) { 
+  push (element) {
     var node = new Node(element);
-    
-    var current; 
 
-    if (this.head == null) 
-        this.head = node; 
-    else { 
-        current = this.head; 
-        while (current.next) { 
-            current = current.next; 
-        } 
-        current.next = node; 
-    } 
+    var current;
+
+    if (this.head == null)
+        this.head = node;
+    else {
+        current = this.head;
+        while (current.next) {
+            current = current.next;
+        }
+        current.next = node;
+    }
   }
 }
 
@@ -97,31 +97,18 @@ Output: a -> c -> d
 	SET current to head node
 	SET previous to null
 
-	WHILE current is not null 
+	WHILE current is not null
 		IF current element is the same as the next element
-		REMOVE duplicated element	
-		
+		REMOVE duplicated element
+
 		SET previous to current node
 		SET current to current.next;
-		
+
 		ITERATE AGAIN (while will do this)
 
 (CODE)
 
-removeElement(element) 
-{ 
-    const current = this.head; 
-    const prev = null; 
-
-    while (current != null) { 
-        if (current.element === current.next.element) {
-            this.length--;  
-        } 
-        prev = current; 
-        current = current.next; 
-    } 
-    return this; 
-}
+please see linked-list-code.js
 
 ---------------------------------
 ---------------------------------

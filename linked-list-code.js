@@ -1,27 +1,27 @@
 
-class Node { 
-     constructor(element) 
-     { 
-         this.element = element; 
+class Node {
+     constructor(element)
+     {
+         this.element = element;
          this.next = null
-     } 
+     }
  }
 
- class LinkedList { 
-   constructor() 
-   { 
+ class LinkedList {
+   constructor()
+   {
        this.head = null;
        this.length = 0;
-   } 
+   }
 
-   push (element) { 
+   push (element) {
      var node = new Node(element);
-     var current; 
+     var current;
 
-     if (this.head === null) 
+     if (this.head === null)
          this.head = node;
 
-     else { 
+     else {
          current = this.head;
          while (current.next != null) {
            current = current.next;
@@ -32,23 +32,39 @@ class Node {
    }
 
    removeDuplicates (element) {
-  
-     var current = this.head; 
-     var previous = null; 
 
-     while (current != null) { 
-       
-         while (current.next) {
-           let nodeToCheck = current.next
-           if (current.element === nodeToCheck.element) {
+    if(this.head == null || this.head.next == null) {
+      return;
+    }
+
+    var current, next, nextnext;
+
+    var current = this.head;
+
+     while (current) {
+
+      console.log("Current = " + current.element);
+
+      next = current;
+
+      nextnext = next.next;
+
+         while (nextnext) {
+
+          console.log("Nextnext = " + nextnext.element);
+
+           if (nextnext.element === current.element) {
+             console.log("Duplicate found");
+             next.next = nextnext.next; //delete orignial nextnext, which was a duplicate
              this.length--;
            }
-           current = current.next;
+           else {
+             next = nextnext;
+           }
+           nextnext = nextnext.next;
          }
 
-         previous = current; 
-         current = current.next; 
-     } 
- }
+         current = current.next;
+     }
 
  }
