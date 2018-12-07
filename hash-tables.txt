@@ -1,0 +1,47 @@
+1. What is a hash table?
+
+A hash table is a data structure that is used to store key/value pairs. It uses a hash function to compute a unique key in a hash table, ensuring values can be retrieved by looking up distinct keys.
+
+2. What is hashing?
+
+Hashing is a function that converts strings into a numerical index. 
+
+3. How does a hash table store data?
+
+Take the key, convert the key into a hash code using tasing function. Next mode the hash code to find array index, and store the value of the array index.
+
+4. How are hash tables and objects different?
+
+Hash Tables:
+
+Keys can be anything, to get the size you can use the .size property, you can iterate over the table directly without needing to first get the keys, it has fast performance.
+
+Objects:
+
+Keys can only be strings and symbols, you count through objects manually, it doesn't have access to the .size property. To iterate over objects you first find the key, then iterate over, and it has slower performance if you are frequently adding and removing objects.
+
+Source: Mozilla
+
+5. Determine whether you would use a hash table or an object to store each of the following pieces of data:
+
+A list of pets and their unique names.
+Hash Table
+
+The name, age, and the birthday of your best friend.
+Object
+
+The name and location of every company in a given city.
+Hash Table
+
+All of the books checked out from a library by a particular individual.
+Hash Table
+
+The primary and secondary phone numbers for a contact.
+Hash Table
+
+6. Build a system that allows a sales associate to enter a customer's name, address, and phone number into the system and look up customers using their phone numbers. Store this information in a hash table.
+
+
+7. Build a system that allows a store owner to track their store's inventory using a hash table for storage.
+
+8. Build a system that allows digital copies of newspapers to be entered and searched by publisher and publication date. Use hash tables to store the necessary data.
