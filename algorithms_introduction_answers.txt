@@ -1,0 +1,76 @@
+1. Using proper pseudo-code, describe the following primitive algorithms:
+
+A. Making coffee;
+
+PROGRAM MakeCoffee:
+
+    Fetch Supplies:
+        GET coffee AND filters AND scoop from cabinet;
+        GET 12 cups of water from tap;
+    
+    Make Coffee in Pot:
+        ADD one filter in coffee maker;
+        ADD four scoops of coffee in coffee maker;
+        ADD 12 cups of water to coffee maker;
+        INIT turn on the coffee maker;
+ 
+END
+
+B. Washing dishes;
+
+PROGRAM WasdDishes:
+
+        GET count dirty dishes
+
+        WHILE dirty dishes > 0;
+            IF top shelf item
+                THEN place on top shelf
+            ELSE IF utensil
+                THEN place in utensil holder
+            ELSE 
+                place on bottom shelf
+            END IF
+        END WHILE
+
+        ADD dishwashing tablet
+        INIT power on dishwasher
+END
+
+C. A choice of your own.
+
+PROGRAM morningCrazy:
+
+SET children to array of 1, 2, 3
+SET mom to me
+
+FOR EACH child
+        REPEAT UNTIL child is in shower OR mom enters room 
+            WHEN alarm rings
+            IF (child is not shower OR mom is not in roon )
+                HIT snooze button
+                WAIT until alarm rings
+            ELSE
+                TURN off the alarm
+                WAIT 10 minutes
+                GET out of bed
+                GET into the shower
+            END IF
+        END REPEAT
+END FOR
+
+2. As with the knot algorithm, there may be more than one way to solve the problem. It is essential to try to pick the best algorithm for a situation. Name three companies who created an algorithm that made them successful, e.g., Google's search algorithm. It doesn't need to be a tech example (such as a recipe or manufacturing a product). Google's algorithm produces more relevant results than other search engines; what about each of your cases make them stand out?
+
+UPS used algorithms to save their drives up to 86 million miles per year by calculating the most eefficient routes for their drivers.
+
+Lyft and Uber used algorithms to match drivers to passangers, making getting a ride much faster.
+
+Netflix uses predictive algorithm to serve up content to users that they will most likely want to watch.
+
+All of these companies have been disruptors and trend setters in their industries, and have turned their algorithms into pretty big revenue streams!
+
+3. Hypothesize about what constitutes an efficient algorithm versus an inefficient algorithm.
+
+To know whether an algorithm is efficient, you need to consider the time and space complexities.
+
+Time complexity is how much time an algorithm takes to run in relation to the input.
+Space complexity is the amount of memory space an algorithm takes in relation to input.
