@@ -1,0 +1,75 @@
+1. What is time complexity and what is its relation to algorithms?
+
+Time complexity is the resulting runtime of an algorithm in relation to the input into that algoritm. Examples of time complexity functions include O(1), O(log n), O(n), O(n log n), O(n^2), and O(2^n). In each, n represents the input size. 
+
+2. What is runtime?
+
+The length of time a program takes to run
+
+3. How is the runtime of an algorithm calculated?
+
+The running time of an algorithm is calculated by calculating the time complexity, so for a specific input depends on the number of operations executed. The greater the number of operations, the longer the running time of an algorithm.
+
+4. Name the six types of algorithm growth rates we saw in this checkpoint and list them in order of most efficient to least efficient. Now Google another algorithmic growth rate not covered and place it in the correct spot in your list.
+(+5. Choose one of the algorithmic growth rates from the last question and make a comparison to a real-life situation.)
+
+O(1) is a Constant Growth Rate, where the runtime of your alorithm remains constant, or is not dependent on your input. An example here is if you have an array that you will loop through 5 times, and then your function stops. 
+
+O(log n) is Logarithmic Growth Rate. Runtime grows by one unit every time we double the input, mostly this time complexity is seen in binary search. A real rife example here would be the rate at which humans grow into adulthood, we grow at a really fast rate as a baby, slightly slower as a child then the rate at which we grow slows down until we are fully grown. Unlike the time complexity here thought there is a limit to the input I guess, since we do start shrinking at a certain age too! 
+
+O(n) is a Linear Growth Rate, where the runtime of your aloright will grow at a linear rate in relation the the input. An example of this is s single for loop function, where you loop through for the lenght of the input array. So as your input grows, so does your runtime at a linear rate.
+
+O(n log n) is Log-Linear Growth Rate.  A log-linear growth rate halves the data each time for each of n times. 
+
+O(n^2) is a Quadratic Growth Rate. The runtime here will be directly proportional to the square of the size of the input. Stacking two for loops within each other, each dependendent of the lenght of the input array will for example result in a quadratic growth rate.
+
+O(n^3) = Cubic Growth Rate. The runtime here will be directly proportional to the power of three of the size of the input. 
+
+O(2^n) is Exponential Growth Rate, the runtime doubles with each new input. This is often seen in recursive algorithms, and can be seen in older algorithms graphing routes on maps.
+
+O(n!) is Factorial Time. A brute force search would be an example of a factorial time, for example trying to solve the traveling salesmans's shortest route problem with brute force search, or brute force hacking passwords.
+
+6. Determine the time complexity of the following snippet of code. It is commonly known as a linear search.
+
+FUNCTION linearSearch(array, target)
+ FOR each number in the array
+   IF number = target THEN
+     RETURN true
+   END IF
+ END FOR
+ RETURN false
+END FUNCTION
+
+O(n) or Linear
+
+7. Determine the time complexity of the following snippet of code.
+
+FUNCTION foo(array)
+ FOR each number in the array
+   FOR each number in the array
+     print "Hello"
+   END FOR
+ END FOR
+END FUNCTION
+
+O(n^2) or Quadratic
+
+8. Determine the time complexity of the following snippet of code. It is commonly known as the Fibonacci sequence.
+
+FUNCTION fibonacci(number)
+ IF number < 1 THEN
+   ERROR
+ ELSE IF number = 1 or 2 THEN
+   RETURN 1
+ ELSE
+   CALL fibonacci WITH number - 2 RETURNING twoBack
+   CALL fibonacci WITH number - 1 RETURNING oneBack
+   RETURN twoBack + oneBack
+ END IF
+END FUNCTION
+
+O(2^n) or Exponential
+
+9. Out of the code snippets you just saw, which is the most time efficient?
+
+O(n) or Linear
