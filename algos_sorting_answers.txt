@@ -1,0 +1,38 @@
+1. Write pseudocode for bubble sort.
+
+FUNCTION bubbleSort(elementsToSort)
+  DO
+    SET swapped = FALSE
+    FOR i = indexOfFirstElement to indexOfLastUnsortedElement-1
+      IF leftElement > rightElement
+        swapElement = leftElement
+        leftElement = rightElement
+        rightElement = swapElement
+        swapped = true
+      END IF
+    END FOR
+  WHILE swapped is TRUE
+END FUNCTION
+
+2. Write pseudocode for quicksort.
+
+  QuickSort( double[] a )
+   {
+      if ( a.length ≤ 1 )
+         return;    // Don't need sorting             
+
+      Select a pivot;  // It's usually the last elem in a[]      
+
+      Partition a[] in 2 halves:
+         left[]: elements ≤ pivot
+	 right[]: elements > pivot;
+
+      Sort left[];
+      Sort right[];
+
+      Concatenate: left[] pivot right[]
+   }
+
+3. We talked about time complexity in a previous checkpoint, and how to get an idea of the efficiency of an algorithm. After looking at the pseudocode for the above sorting methods, identify why merge sort and quick sort are much more efficient than the others.  Walking through each algorithm with a few sample collections may help.
+
+4. All of the sorts addressed in this checkpoint are known as comparison sorts. Research bucket sort and explain how it works. What is the ideal input for bucket sort?
