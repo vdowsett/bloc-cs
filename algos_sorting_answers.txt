@@ -16,23 +16,52 @@ END FUNCTION
 
 2. Write pseudocode for quicksort.
 
-  QuickSort( double[] a )
-   {
-      if ( a.length ≤ 1 )
-         return;    // Don't need sorting             
+FUNCTION swap(elementsToSort, from, to)
+  SET temp = elementsToSort[from]
+  SET elementsToSort[from] = elementsToSort[to]
+  SET elementsToSort[to] = temp
+END FUNCTION
 
-      Select a pivot;  // It's usually the last elem in a[]      
+FUNCTION quickSort(elementsToSort, first, last)
 
-      Partition a[] in 2 halves:
-         left[]: elements ≤ pivot
-	 right[]: elements > pivot;
+  IF (first >= last)
 
-      Sort left[];
-      Sort right[];
+    return elementsToSort;
+  
+  ELSE 
 
-      Concatenate: left[] pivot right[]
-   }
+    SET pivot = elementsToSort[last]
+    SET counter = first
+
+    FOR each element in elementsToSort; up to but not including the pivot point
+
+      IF (element <= pivot) 
+
+        swap(element, counter)
+        counter++
+  
+      END IF
+    END FOR
+
+      swap(counter, last)
+      quickSort(first, counter - 1)
+      quickSort(counter + 1, last)
+
+    END FOR
+  END IF
+
+  RETURN elementsToSort
+
+END FUNCTION
 
 3. We talked about time complexity in a previous checkpoint, and how to get an idea of the efficiency of an algorithm. After looking at the pseudocode for the above sorting methods, identify why merge sort and quick sort are much more efficient than the others.  Walking through each algorithm with a few sample collections may help.
 
+By dividing the elements that needs to be sorted, and only comparing half the elements to a pivot, elements less than the pivot will never be compared to elements to the right of the element. This greatly improves the efficiency of the sorting methods. Other methods will compare each and every value and then sort it, which adds complexity to the algorithm.
+
 4. All of the sorts addressed in this checkpoint are known as comparison sorts. Research bucket sort and explain how it works. What is the ideal input for bucket sort?
+
+"Bucket sort, or bin sort, is a sorting algorithm that works by distributing the elements of an array into a number of buckets. Each bucket is then sorted individually, either using a different sorting algorithm, or by recursively applying the bucket sorting algorithm." - Wikipedia
+
+The advantage of bucket sort is that once the elements are distributed into buckets. Each bucket is sorted independently of the others, you are sorting much smaller sets of arrays and can sort buckets in parallel with one another. The disadvantage is that if you get a bad distribution into the buckets, you may end up doing a huge amount of extra work for no benefit or a minimal benefit. 
+
+Bucket sort works best when the data are more or less uniformly distributed or where there is an intelligent way to choose the buckets.
