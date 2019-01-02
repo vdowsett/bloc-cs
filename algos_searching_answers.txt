@@ -1,0 +1,23 @@
+1. What is a real-life scenario that uses linear search?
+
+Let's say you are sent to the grocery store to find a particular brand of pizza. You don't know which fridge that pizza brand is in, so you will start at the beginning of the pizza isle, and search fridge by fridge until the particular brand is found. 
+
+2. What is a real-life scenario that uses binary search?
+
+Opening the dictionary to the middle to see which letter the words start with. You then skip a whole lot of pages in the direction of the alpahet in which your word starts with, and reduce the number of pages you skip the closer you get to the letter of the alphabet your word starts with. You keep narrowing down your skipped pages until you have the page your word will be on. You continue to binary searh as you scan words, since yout hen usuall read a word and metlly evluate the rest of the letters to see if it's close to your word, or if you need to skip sections and scan until your word is found.
+
+3. Given the alphabetically sorted collection in this checkpoint, how many iterations would it take to find the value G using linear search?
+
+7
+
+4. Given the alphabetically sorted collection in this checkpoint, how many iterations would it take to find the value G using binary search?
+
+3
+
+5. Given an unsorted collection of a million items, which algorithm would you choose between linear search and binary search? Explain your reasoning.
+
+Binary search is not possible on an unsorted list, so linear
+
+6. Given a sorted collection of a million items, which algorithm would you choose between linear search and binary search? Explain your reasoning.
+
+For a SORTED data set that large I would use a binary search for sure. Binary searches work with sorted collections and with linear search the worst case would be O(n) but binary search case only O(log n)
