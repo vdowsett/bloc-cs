@@ -8,7 +8,7 @@
             "type": "node",
             "request": "launch",
             "name": "Launch Program",
-            "program": "${workspaceFolder}/graphs-trees-binary-tree-distance.js"
+            "program": "${workspaceFolder}/algos_binary_search_array.js"
         }
     ]
 }
